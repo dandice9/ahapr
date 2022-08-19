@@ -1,0 +1,33 @@
+const fs = require('fs');
+
+module.exports = {
+    "development": {
+        "username": "ahapr",
+        "password": "ahapr",
+        "database": "ahapr",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "admin",
+        "password": "password",
+        "database": "aha",
+        "host": "host",
+        "port": 54321,
+        "dialect": "postgres",
+        "ssl": true,
+        "dialectOptions": {
+            "ssl": {
+                "ca": fs.readFileSync('./certs/db-cert.crt')
+            }
+        },
+        "logging": false
+    }
+}
