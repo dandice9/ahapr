@@ -165,7 +165,7 @@ class Navigation extends Component<Props, State>{
       return this.mainContainer((
           <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4">
-            <Link href="index.html">
+            <Link href="/">
               <a className="navbar-logo block w-full py-5">
                 <Image width={157} height={56} src={isStickyHeader ? "/images/logo/logo.svg" : "/images/logo/logo-white.svg"} alt="logo" className="header-logo w-full" />
               </a>
