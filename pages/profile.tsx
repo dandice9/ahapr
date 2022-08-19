@@ -21,7 +21,6 @@ async function changeUsername(email: string | null | undefined, username: string
       })
 
       window.localStorage.setItem('username-' + email, username)
-      console.log(username);
   
       return true
     } catch (error) {
@@ -65,6 +64,7 @@ export default function Profile() {
                   const success = await changeUsername(user?.email, username)
 
                   if(success){
+                    setUsernameDisplay(username)
                     setShowTextBox(false)
                   }
                   else {
