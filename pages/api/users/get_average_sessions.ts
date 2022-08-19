@@ -16,6 +16,28 @@ type TotalSessionResult = {
   total_sessions: number
 }
 
+/**
+ * @swagger
+ * /api/users/get_average_sessions:
+ *   post:
+ *     requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          "back_date_count":
+ *                              type: number
+ *                              default: 7
+ *                      
+ *     description: Returns average session
+ *     responses:
+ *       200:
+ *         description: average session
+ *       404:
+ *          description: data not found
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<SessionData>
@@ -39,6 +61,8 @@ export default async function handler(
     })
   }
   else {
-    return res.status(404)
+    return res.status(404).json({
+        error: new Error('not found')
+    })
   }
 }

@@ -4,12 +4,22 @@ import axios from 'axios'
 import moment from 'moment'
 
 type SessionData = {
-  total_signup: number,
-  total_active_session_today: number,
+  total_signup?: number | undefined,
+  total_active_session_today?: number | undefined,
   detail?: string | undefined
   error?: Error | undefined
 }
-
+/**
+ * @swagger
+ * /api/users/get_session_data:
+ *   post:     
+ *     description: Returns session statistics
+ *     responses:
+ *       200:
+ *         description: session stats
+ *       404:
+ *          description: data not found
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<SessionData>
@@ -53,6 +63,8 @@ export default async function handler(
     })
   }
   else {
-    return res.status(404)
+    return res.status(404).json({
+        error: new Error('not found')
+    })
   }
 }

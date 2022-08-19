@@ -7,6 +7,29 @@ type Data = {
     data: any
 }
 
+/**
+ * @swagger
+ * /api/change_username:
+ *   post:
+ *     requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          email:
+ *                              type: string
+ *                          username:
+ *                              type: string
+ *                      
+ *     description: Returns updated user object
+ *     responses:
+ *       200:
+ *         description: change username
+ *       404:
+ *          description: data not found
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
@@ -54,11 +77,15 @@ export default async function handler(
         }
         else {
 
-            return res.status(500)
+            return res.status(404).json({
+                data: 'not found'
+            })
 
         }
     }
     else {
-        return res.status(404)
+        return res.status(404).json({
+            data: 'not found'
+        })
     }
 }   

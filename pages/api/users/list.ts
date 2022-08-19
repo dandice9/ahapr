@@ -13,6 +13,27 @@ type UserData = {
     last_login_text?: string | undefined
 }
 
+/**
+ * @swagger
+ * /api/users/list:
+ *   post:
+ *     requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          page:
+ *                              type: number
+ *                      
+ *     description: Returns updated paginated user list, page started from 0 index
+ *     responses:
+ *       200:
+ *         description: user list
+ *       404:
+ *          description: data not found
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Array<UserData>>
@@ -56,6 +77,6 @@ export default async function handler(
     return res.json(userlist)
   }
   else {
-    return res.status(404)
+    return res.status(404).json([])
   }
 }

@@ -35,7 +35,4 @@ export default async function handler(
             data: error
         })
     }
-
-
-    // return res.status(200).json({ name: 'John Doe ', session: data })
 }

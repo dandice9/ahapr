@@ -18,10 +18,12 @@
     "axios": "^0.27.2",
     "link-module-alias": "^1.2.0",
     "next": "12.2.4",
+    "next-swagger-doc": "^0.3.6",
     "pg": "^8.7.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "swagger-ui-react": "^4.14.0"
   },
   "devDependencies": {
     "@types/node": "18.7.1",
