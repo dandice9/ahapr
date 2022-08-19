@@ -75,10 +75,10 @@ class DashboardComponent extends Component<Props, State>{
           </tr>
         </thead>
         <tbody>
-          {userlist.map(userData => {
+          {userlist.map((userData, idx) => {
 
             return (         
-              <tr>
+              <tr key={idx}>
                 <td className='border border-slate-300 p-4'>{userData.email}</td>
                 <td className='border border-slate-300 p-4'>{userData.name}</td>
                 <td className='border border-slate-300 p-4'>{userData.logins_count}</td>

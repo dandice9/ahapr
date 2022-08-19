@@ -9,14 +9,14 @@ import DashboardComponent from '~components/dashboard';
 export default function Dashboard() {
   const { user, error, isLoading } = useUser();
 
-  if (isLoading) return <div className='text-center'>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
-
   useEffect(() => {
     if(!user){
       window.localStorage.removeItem('username')
     }
   })
+
+  if (isLoading) return <div className='text-center'>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <div>

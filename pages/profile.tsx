@@ -43,7 +43,7 @@ export default function Profile() {
   useEffect(() => {
     const currentUsername = window.localStorage.getItem('username-' + user?.email) || user?.name || "-"
     setUsernameDisplay(currentUsername)
-  })
+  }, [user?.email, user?.name])
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
